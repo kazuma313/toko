@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+      .button-column {
+        text-align: center;
+      }
+
+      .button-column a {
+        display: inline-block;
+        padding: 2px 5px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #007bff;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>List available produk</h1>
+    {% for msg in messages %}
+    <div style="background-color: #ffc107; color: #856404; padding: 10px; border: 1px solid #ffeeba; border-radius: 5px">{{ msg }}</div>
+    {% endfor %}
+    <div>
+      <a
+        href="{% url 'add_data' %}"
+        style="margin: 5px; display: inline-block; padding: 2px 5px; text-decoration: none; color: #fff; background-color: #007bff; border-radius: 4px; cursor: pointer"
+        >Insert</a
+      >
+    </div>
+
+    <table>
+      <colgroup>
+        <col style="background-color: yellow" />
+      </colgroup>
+      <tr>
+        <th>Nama Produk</th>
+        <th>Harga</th>
+        <th>Kategori</th>
+        <th class="button-column">Actions</th>
+      </tr>
+
+      {% if statuss %} {% for status in statuss.produk_set.all %}
+      <tr>
+        <td>{{ status.nama_produk }}</td>
+        <td>{{ status.harga }}</td>
+        <td>{{ status.kategori.nama_katagori}}</td>
+        <td class="button-column" inline>
+          <a href="/edit/{{ status.id }}" style="background-color: #007bff; color: #fff; padding: 3px 8px; text-decoration: none; border-radius: 3px; margin-right: 5px">Update</a>
+          <form action="/delete/{{ status.id }}" method="post" style="display: inline-block">
+            {% csrf_token %}
+            <input
+              type="submit"
+              style="background-color: #dc3545; color: #fff; padding: 5px 10px; border: none; border-radius: 3px; cursor: pointer"
+              value="Delete"
+              onclick="return confirm('Apakah anda yakin ingin menghapus?');"
+            />
+          </form>
+        </td>
+      </tr>
+      {% endfor %} {% else %}
+      <p>no status are available.</p>
+      {% endif %}
+    </table>
+  </body>
+</html>

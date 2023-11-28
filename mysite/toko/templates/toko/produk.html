@@ -1,0 +1,7 @@
+<h1>{{ produks.nama_produk }}</h1>
+
+<ul>
+  {% for choice in produks.kategori_set.all %}
+  <li>{{ choice.nama_katagori }}</li>
+  {% endfor %}
+</ul>
