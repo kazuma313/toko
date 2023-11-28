@@ -27,8 +27,8 @@ python manage.py runserver
 
 Berikut adalah gambar pada index
 
-![index](https://raw.githubusercontent.com/kazuma313/toko/main/gambar/form.png)
+![index](https://raw.githubusercontent.com/kazuma313/toko/main/gambar/home.png)
 
 Berikut adalah gambar form dari django form.
 
-![form](https://raw.githubusercontent.com/kazuma313/toko/main/gambar/index.png)
+![form](https://raw.githubusercontent.com/kazuma313/toko/main/gambar/form.png)
