@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
+  {% for msg in messages %}
+  <div style="background-color: #ffc107; color: #856404; padding: 10px; border: 1px solid #ffeeba; border-radius: 5px">{{ msg }}</div>
+  {% endfor %}
   <body>
     <h2>Forms</h2>
     <a href="/" style="background-color: #007bff; color: #fff; padding: 3px 8px; text-decoration: none; border-radius: 3px; margin-right: 5px">home</a>
-    {% for msg in messages %}
-    <div style="background-color: #ffc107; color: #856404; padding: 10px; border: 1px solid #ffeeba; border-radius: 5px">{{ msg }}</div>
-    {% endfor %}
     <form action="" method="POST">
       {% csrf_token %} {{ form.as_p }}
       <input

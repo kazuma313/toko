@@ -3,13 +3,8 @@ import datetime
 import requests
 import json
 
-result = hashlib.md5("bisacoding-24-11-23".encode())
-tanggal = datetime.date.today().strftime('%d-%m-%Y')[:-4]
-year =  datetime.date.today().strftime('%d-%m-%Y')[-2:]
-
-username = "tesprogrammer251123C00"
-# password = "bisacoding-" + tanggal + year
-password = "bisacoding-25-11-23"
+username = ""
+password = ""
 password_md5 = hashlib.md5(password.encode()).hexdigest()
 
 authload = {'username':username,'password':password_md5}

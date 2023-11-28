@@ -23,11 +23,11 @@
       }
     </style>
   </head>
+  {% for msg in messages %}
+  <div style="background-color: #ffc107; color: #856404; padding: 10px; border: 1px solid #ffeeba; border-radius: 5px">{{ msg }}</div>
+  {% endfor %}
   <body>
     <h1>List available produk</h1>
-    {% for msg in messages %}
-    <div style="background-color: #ffc107; color: #856404; padding: 10px; border: 1px solid #ffeeba; border-radius: 5px">{{ msg }}</div>
-    {% endfor %}
     <div>
       <a
         href="{% url 'add_data' %}"
